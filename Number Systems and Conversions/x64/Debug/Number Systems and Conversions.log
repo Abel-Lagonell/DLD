@@ -1,0 +1,9 @@
+﻿  Number Systems and Conversions.cpp
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(23,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(24,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(26,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(34,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(46,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(62,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\Number Systems and Conversions.cpp(42): warning C4715: 'digits': not all control paths return a value
+  Number Systems and Conversions.vcxproj -> C:\Users\alago\Documents\Github\DLD\Number Systems and Conversions\x64\Debug\Number Systems and Conversions.exe

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <cmath>
 using namespace std;
 
 //Gets the digit from the string 
@@ -181,6 +182,8 @@ int main() {
 	
 	cout << "OG number: " << str << endl;
 	cout << "Final: " << bin << endl;
+
+	//cout << "101 base 2 = " << baseToDecimal("1.1",5) << endl;
 
 	return 0;
 }

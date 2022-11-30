@@ -2,7 +2,16 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "test",
+					"strict" : false
+				},
+				{
+					"name" : "Start_Stop",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

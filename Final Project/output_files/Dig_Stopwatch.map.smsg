@@ -1,4 +1,8 @@
-Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "A" differs only in case from object "a" in the same scope File: C:/Users/alago/Documents/Github/DLD/Final Project/BCD7Segment.v Line: 3
-Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "B" differs only in case from object "b" in the same scope File: C:/Users/alago/Documents/Github/DLD/Final Project/BCD7Segment.v Line: 3
-Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "C" differs only in case from object "c" in the same scope File: C:/Users/alago/Documents/Github/DLD/Final Project/BCD7Segment.v Line: 3
-Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "D" differs only in case from object "d" in the same scope File: C:/Users/alago/Documents/Github/DLD/Final Project/BCD7Segment.v Line: 3
+Info (10281): Verilog HDL Declaration information at Stopwatch.v(4): object "Out1" differs only in case from object "out1" in the same scope File: W:/DLD/Final Project/Stopwatch.v Line: 4
+Info (10281): Verilog HDL Declaration information at Stopwatch.v(4): object "Out2" differs only in case from object "out2" in the same scope File: W:/DLD/Final Project/Stopwatch.v Line: 4
+Info (10281): Verilog HDL Declaration information at Stopwatch.v(4): object "Out3" differs only in case from object "out3" in the same scope File: W:/DLD/Final Project/Stopwatch.v Line: 4
+Info (10281): Verilog HDL Declaration information at Stopwatch.v(4): object "Out4" differs only in case from object "out4" in the same scope File: W:/DLD/Final Project/Stopwatch.v Line: 4
+Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "A" differs only in case from object "a" in the same scope File: W:/DLD/Final Project/BCD7Segment.v Line: 3
+Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "B" differs only in case from object "b" in the same scope File: W:/DLD/Final Project/BCD7Segment.v Line: 3
+Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "C" differs only in case from object "c" in the same scope File: W:/DLD/Final Project/BCD7Segment.v Line: 3
+Info (10281): Verilog HDL Declaration information at BCD7Segment.v(3): object "D" differs only in case from object "d" in the same scope File: W:/DLD/Final Project/BCD7Segment.v Line: 3

@@ -1,171 +1,184 @@
 |Dig_Stopwatch
 clk => clk.IN1
-rst => rst.IN4
-Start_Stop => a[0].IN1
-Out1[0] <= BCD7Segment:comb_14.port1
-Out1[1] <= BCD7Segment:comb_14.port2
-Out1[2] <= BCD7Segment:comb_14.port3
-Out1[3] <= BCD7Segment:comb_14.port4
-Out1[4] <= BCD7Segment:comb_14.port5
-Out1[5] <= BCD7Segment:comb_14.port6
-Out1[6] <= BCD7Segment:comb_14.port7
-Out2[0] <= BCD7Segment:comb_15.port1
-Out2[1] <= BCD7Segment:comb_15.port2
-Out2[2] <= BCD7Segment:comb_15.port3
-Out2[3] <= BCD7Segment:comb_15.port4
-Out2[4] <= BCD7Segment:comb_15.port5
-Out2[5] <= BCD7Segment:comb_15.port6
-Out2[6] <= BCD7Segment:comb_15.port7
-Out3[0] <= BCD7Segment:comb_16.port1
-Out3[1] <= BCD7Segment:comb_16.port2
-Out3[2] <= BCD7Segment:comb_16.port3
-Out3[3] <= BCD7Segment:comb_16.port4
-Out3[4] <= BCD7Segment:comb_16.port5
-Out3[5] <= BCD7Segment:comb_16.port6
-Out3[6] <= BCD7Segment:comb_16.port7
-Out4[0] <= BCD7Segment:comb_17.port1
-Out4[1] <= BCD7Segment:comb_17.port2
-Out4[2] <= BCD7Segment:comb_17.port3
-Out4[3] <= BCD7Segment:comb_17.port4
-Out4[4] <= BCD7Segment:comb_17.port5
-Out4[5] <= BCD7Segment:comb_17.port6
-Out4[6] <= BCD7Segment:comb_17.port7
-test <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+rst => rst.IN2
+Start_Stop => Start_Stop.IN1
+Out1[0] <= BCD7Segment:bcd1.port1
+Out1[1] <= BCD7Segment:bcd1.port2
+Out1[2] <= BCD7Segment:bcd1.port3
+Out1[3] <= BCD7Segment:bcd1.port4
+Out1[4] <= BCD7Segment:bcd1.port5
+Out1[5] <= BCD7Segment:bcd1.port6
+Out1[6] <= BCD7Segment:bcd1.port7
+Out2[0] <= BCD7Segment:bcd2.port1
+Out2[1] <= BCD7Segment:bcd2.port2
+Out2[2] <= BCD7Segment:bcd2.port3
+Out2[3] <= BCD7Segment:bcd2.port4
+Out2[4] <= BCD7Segment:bcd2.port5
+Out2[5] <= BCD7Segment:bcd2.port6
+Out2[6] <= BCD7Segment:bcd2.port7
+Out3[0] <= BCD7Segment:bcd3.port1
+Out3[1] <= BCD7Segment:bcd3.port2
+Out3[2] <= BCD7Segment:bcd3.port3
+Out3[3] <= BCD7Segment:bcd3.port4
+Out3[4] <= BCD7Segment:bcd3.port5
+Out3[5] <= BCD7Segment:bcd3.port6
+Out3[6] <= BCD7Segment:bcd3.port7
+Out4[0] <= BCD7Segment:bcd4.port1
+Out4[1] <= BCD7Segment:bcd4.port2
+Out4[2] <= BCD7Segment:bcd4.port3
+Out4[3] <= BCD7Segment:bcd4.port4
+Out4[4] <= BCD7Segment:bcd4.port5
+Out4[5] <= BCD7Segment:bcd4.port6
+Out4[6] <= BCD7Segment:bcd4.port7
 
 
-|Dig_Stopwatch|clk_divider:comb_9
+|Dig_Stopwatch|TFF0:tff
+data => q~reg0.ENA
+clk => q~reg0.CLK
+reset => q~reg0.ACLR
+q <= q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|clk_divider:clkd
 clock => clock.IN1
-rst => rst.IN18
-clk_out <= <GND>
+rst => rst.IN19
+clk_out <= DFF0:dff_gen_label[18].dff_inst.data_out
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_inst0
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_inst0
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[1].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[1].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[2].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[2].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[3].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[3].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[4].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[4].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[5].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[5].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[6].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[6].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[7].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[7].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[8].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[8].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[9].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[9].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[10].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[10].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[11].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[11].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[12].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[12].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[13].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[13].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[14].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[14].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[15].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[15].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[16].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[16].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|clk_divider:comb_9|DFF0:dff_gen_label[17].dff_inst
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[17].dff_inst
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10
+|Dig_Stopwatch|clk_divider:clkd|DFF0:dff_gen_label[18].dff_inst
+data_in => data_out.DATAA
+clock => data_out~reg0.CLK
+reset => data_out.OUTPUTSELECT
+data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|Count10:c1
 clk => clk.IN1
 reset => k.IN1
 inc => inc.IN1
@@ -176,139 +189,7 @@ count[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
 count[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01
-clock => clock.IN1
-rst => rst.IN18
-clk_out <= <GND>
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_inst0
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[1].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[2].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[3].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[4].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[5].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[6].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[7].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[8].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[9].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[10].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[11].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[12].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[13].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[14].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[15].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[16].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|clk_divider:clk01|DFF0:dff_gen_label[17].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_10|DFF4:dff
+|Dig_Stopwatch|Count10:c1|DFF4:dff
 in[0] => in[0].IN1
 in[1] => in[1].IN1
 in[2] => in[2].IN1
@@ -321,35 +202,35 @@ out[2] <= DFF0:dff2.port3
 out[3] <= DFF0:dff3.port3
 
 
-|Dig_Stopwatch|Count10:comb_10|DFF4:dff|DFF0:dff0
+|Dig_Stopwatch|Count10:c1|DFF4:dff|DFF0:dff0
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|DFF4:dff|DFF0:dff1
+|Dig_Stopwatch|Count10:c1|DFF4:dff|DFF0:dff1
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|DFF4:dff|DFF0:dff2
+|Dig_Stopwatch|Count10:c1|DFF4:dff|DFF0:dff2
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|DFF4:dff|DFF0:dff3
+|Dig_Stopwatch|Count10:c1|DFF4:dff|DFF0:dff3
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|RCA:rca
+|Dig_Stopwatch|Count10:c1|RCA:rca
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -362,7 +243,7 @@ Sum[2] <= HA:u3.port2
 Sum[3] <= HA:u4.port2
 
 
-|Dig_Stopwatch|Count10:comb_10|RCA:rca|HA:u1
+|Dig_Stopwatch|Count10:c1|RCA:rca|HA:u1
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -371,7 +252,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|RCA:rca|HA:u2
+|Dig_Stopwatch|Count10:c1|RCA:rca|HA:u2
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -380,7 +261,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|RCA:rca|HA:u3
+|Dig_Stopwatch|Count10:c1|RCA:rca|HA:u3
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -389,7 +270,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_10|RCA:rca|HA:u4
+|Dig_Stopwatch|Count10:c1|RCA:rca|HA:u4
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -398,7 +279,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11
+|Dig_Stopwatch|Count10:c2
 clk => clk.IN1
 reset => k.IN1
 inc => inc.IN1
@@ -409,139 +290,7 @@ count[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
 count[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01
-clock => clock.IN1
-rst => rst.IN18
-clk_out <= <GND>
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_inst0
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[1].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[2].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[3].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[4].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[5].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[6].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[7].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[8].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[9].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[10].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[11].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[12].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[13].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[14].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[15].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[16].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|clk_divider:clk01|DFF0:dff_gen_label[17].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_11|DFF4:dff
+|Dig_Stopwatch|Count10:c2|DFF4:dff
 in[0] => in[0].IN1
 in[1] => in[1].IN1
 in[2] => in[2].IN1
@@ -554,35 +303,35 @@ out[2] <= DFF0:dff2.port3
 out[3] <= DFF0:dff3.port3
 
 
-|Dig_Stopwatch|Count10:comb_11|DFF4:dff|DFF0:dff0
+|Dig_Stopwatch|Count10:c2|DFF4:dff|DFF0:dff0
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|DFF4:dff|DFF0:dff1
+|Dig_Stopwatch|Count10:c2|DFF4:dff|DFF0:dff1
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|DFF4:dff|DFF0:dff2
+|Dig_Stopwatch|Count10:c2|DFF4:dff|DFF0:dff2
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|DFF4:dff|DFF0:dff3
+|Dig_Stopwatch|Count10:c2|DFF4:dff|DFF0:dff3
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|RCA:rca
+|Dig_Stopwatch|Count10:c2|RCA:rca
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -595,7 +344,7 @@ Sum[2] <= HA:u3.port2
 Sum[3] <= HA:u4.port2
 
 
-|Dig_Stopwatch|Count10:comb_11|RCA:rca|HA:u1
+|Dig_Stopwatch|Count10:c2|RCA:rca|HA:u1
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -604,7 +353,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|RCA:rca|HA:u2
+|Dig_Stopwatch|Count10:c2|RCA:rca|HA:u2
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -613,7 +362,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|RCA:rca|HA:u3
+|Dig_Stopwatch|Count10:c2|RCA:rca|HA:u3
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -622,7 +371,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_11|RCA:rca|HA:u4
+|Dig_Stopwatch|Count10:c2|RCA:rca|HA:u4
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -631,7 +380,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12
+|Dig_Stopwatch|Count10:c3
 clk => clk.IN1
 reset => k.IN1
 inc => inc.IN1
@@ -642,139 +391,7 @@ count[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
 count[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01
-clock => clock.IN1
-rst => rst.IN18
-clk_out <= <GND>
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_inst0
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[1].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[2].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[3].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[4].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[5].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[6].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[7].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[8].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[9].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[10].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[11].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[12].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[13].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[14].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[15].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[16].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|clk_divider:clk01|DFF0:dff_gen_label[17].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count10:comb_12|DFF4:dff
+|Dig_Stopwatch|Count10:c3|DFF4:dff
 in[0] => in[0].IN1
 in[1] => in[1].IN1
 in[2] => in[2].IN1
@@ -787,35 +404,35 @@ out[2] <= DFF0:dff2.port3
 out[3] <= DFF0:dff3.port3
 
 
-|Dig_Stopwatch|Count10:comb_12|DFF4:dff|DFF0:dff0
+|Dig_Stopwatch|Count10:c3|DFF4:dff|DFF0:dff0
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|DFF4:dff|DFF0:dff1
+|Dig_Stopwatch|Count10:c3|DFF4:dff|DFF0:dff1
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|DFF4:dff|DFF0:dff2
+|Dig_Stopwatch|Count10:c3|DFF4:dff|DFF0:dff2
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|DFF4:dff|DFF0:dff3
+|Dig_Stopwatch|Count10:c3|DFF4:dff|DFF0:dff3
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|RCA:rca
+|Dig_Stopwatch|Count10:c3|RCA:rca
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -828,7 +445,7 @@ Sum[2] <= HA:u3.port2
 Sum[3] <= HA:u4.port2
 
 
-|Dig_Stopwatch|Count10:comb_12|RCA:rca|HA:u1
+|Dig_Stopwatch|Count10:c3|RCA:rca|HA:u1
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -837,7 +454,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|RCA:rca|HA:u2
+|Dig_Stopwatch|Count10:c3|RCA:rca|HA:u2
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -846,7 +463,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|RCA:rca|HA:u3
+|Dig_Stopwatch|Count10:c3|RCA:rca|HA:u3
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -855,7 +472,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count10:comb_12|RCA:rca|HA:u4
+|Dig_Stopwatch|Count10:c3|RCA:rca|HA:u4
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -864,7 +481,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13
+|Dig_Stopwatch|Count6:c4
 clk => clk.IN1
 reset => k.IN1
 inc => inc.IN1
@@ -875,139 +492,7 @@ count[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
 count[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01
-clock => clock.IN1
-rst => rst.IN18
-clk_out <= <GND>
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_inst0
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[1].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[2].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[3].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[4].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[5].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[6].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[7].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[8].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[9].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[10].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[11].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[12].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[13].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[14].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[15].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[16].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|clk_divider:clk01|DFF0:dff_gen_label[17].dff_inst
-data_in => data_out.DATAA
-clock => data_out~reg0.CLK
-reset => data_out.OUTPUTSELECT
-data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|Dig_Stopwatch|Count6:comb_13|DFF4:dff
+|Dig_Stopwatch|Count6:c4|DFF4:dff
 in[0] => in[0].IN1
 in[1] => in[1].IN1
 in[2] => in[2].IN1
@@ -1020,35 +505,35 @@ out[2] <= DFF0:dff2.port3
 out[3] <= DFF0:dff3.port3
 
 
-|Dig_Stopwatch|Count6:comb_13|DFF4:dff|DFF0:dff0
+|Dig_Stopwatch|Count6:c4|DFF4:dff|DFF0:dff0
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|DFF4:dff|DFF0:dff1
+|Dig_Stopwatch|Count6:c4|DFF4:dff|DFF0:dff1
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|DFF4:dff|DFF0:dff2
+|Dig_Stopwatch|Count6:c4|DFF4:dff|DFF0:dff2
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|DFF4:dff|DFF0:dff3
+|Dig_Stopwatch|Count6:c4|DFF4:dff|DFF0:dff3
 data_in => data_out.DATAA
 clock => data_out~reg0.CLK
 reset => data_out.OUTPUTSELECT
 data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|RCA:rca
+|Dig_Stopwatch|Count6:c4|RCA:rca
 A[0] => A[0].IN1
 A[1] => A[1].IN1
 A[2] => A[2].IN1
@@ -1061,7 +546,7 @@ Sum[2] <= HA:u3.port2
 Sum[3] <= HA:u4.port2
 
 
-|Dig_Stopwatch|Count6:comb_13|RCA:rca|HA:u1
+|Dig_Stopwatch|Count6:c4|RCA:rca|HA:u1
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -1070,7 +555,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|RCA:rca|HA:u2
+|Dig_Stopwatch|Count6:c4|RCA:rca|HA:u2
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -1079,7 +564,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|RCA:rca|HA:u3
+|Dig_Stopwatch|Count6:c4|RCA:rca|HA:u3
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -1088,7 +573,7 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|Count6:comb_13|RCA:rca|HA:u4
+|Dig_Stopwatch|Count6:c4|RCA:rca|HA:u4
 A => Sum.IN0
 A => Cout.IN0
 B => Sum.IN1
@@ -1097,7 +582,51 @@ Sum <= Sum.DB_MAX_OUTPUT_PORT_TYPE
 Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|BCD7Segment:comb_14
+|Dig_Stopwatch|invert:i1
+a[0] => b[3].DATAIN
+a[1] => b[2].DATAIN
+a[2] => b[1].DATAIN
+a[3] => b[0].DATAIN
+b[0] <= a[3].DB_MAX_OUTPUT_PORT_TYPE
+b[1] <= a[2].DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+b[3] <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|invert:i2
+a[0] => b[3].DATAIN
+a[1] => b[2].DATAIN
+a[2] => b[1].DATAIN
+a[3] => b[0].DATAIN
+b[0] <= a[3].DB_MAX_OUTPUT_PORT_TYPE
+b[1] <= a[2].DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+b[3] <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|invert:i3
+a[0] => b[3].DATAIN
+a[1] => b[2].DATAIN
+a[2] => b[1].DATAIN
+a[3] => b[0].DATAIN
+b[0] <= a[3].DB_MAX_OUTPUT_PORT_TYPE
+b[1] <= a[2].DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+b[3] <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|invert:i4
+a[0] => b[3].DATAIN
+a[1] => b[2].DATAIN
+a[2] => b[1].DATAIN
+a[3] => b[0].DATAIN
+b[0] <= a[3].DB_MAX_OUTPUT_PORT_TYPE
+b[1] <= a[2].DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= a[1].DB_MAX_OUTPUT_PORT_TYPE
+b[3] <= a[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Dig_Stopwatch|BCD7Segment:bcd1
 I[0] => A.IN0
 I[0] => F.IN0
 I[1] => A.IN0
@@ -1132,7 +661,7 @@ F <= F.DB_MAX_OUTPUT_PORT_TYPE
 G <= G.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|BCD7Segment:comb_15
+|Dig_Stopwatch|BCD7Segment:bcd2
 I[0] => A.IN0
 I[0] => F.IN0
 I[1] => A.IN0
@@ -1167,7 +696,7 @@ F <= F.DB_MAX_OUTPUT_PORT_TYPE
 G <= G.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|BCD7Segment:comb_16
+|Dig_Stopwatch|BCD7Segment:bcd3
 I[0] => A.IN0
 I[0] => F.IN0
 I[1] => A.IN0
@@ -1202,7 +731,7 @@ F <= F.DB_MAX_OUTPUT_PORT_TYPE
 G <= G.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|Dig_Stopwatch|BCD7Segment:comb_17
+|Dig_Stopwatch|BCD7Segment:bcd4
 I[0] => A.IN0
 I[0] => F.IN0
 I[1] => A.IN0

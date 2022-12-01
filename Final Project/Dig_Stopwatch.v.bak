@@ -4,10 +4,6 @@ input clk,rst,Start_Stop;
 output [6:0] Out1,Out2,Out3,Out4;
 output test;
 
-//TFF0(.clk(Start_Stop),.data(1),.q(s));
-assign test = a[0];
-assign s = Start_Stop;
-
 wire c,s;
 wire [3:0] a,seq,out1, out2, out3, out4;
 //Something is wrong and what happens is that the pin assignments are correct just that the Count10 or the BCD is wrong.
@@ -17,8 +13,10 @@ assign a[1] = a[0] & seq[0];
 assign a[2] = a[1] & seq[1];
 assign a[3] = a[2] & seq[2];
 
+TFF0(.clk(Start_Stop),.data(1),.q(s),.reset(0));
+assign test = a[0];
 
-clk_divider(.clock(clk), .clk_out(c));
+clk_divider(.clock(clk), .clk_out(c),.rst(0));
 
 Count10(.reset(rst),.inc(a[0]),.clk(c),.count(out1),.count_eq_9(seq[0]));
 Count10(.reset(rst),.inc(a[1]),.clk(c),.count(out2),.count_eq_9(seq[1]));

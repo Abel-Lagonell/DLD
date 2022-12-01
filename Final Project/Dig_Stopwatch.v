@@ -5,7 +5,6 @@ output [6:0] Out1,Out2,Out3,Out4;
 
 wire c,s,rst2;
 wire [3:0] a,seq,o1, o2, o3, o4, w, x, y, u;
-//Something is wrong and what happens is that the pin assignments are correct just that the Count10 or the BCD is wrong.
 
 assign rst2 = seq[3] | rst;
 

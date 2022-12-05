@@ -24,5 +24,4 @@ HA u3(A[2],c[1],Sum[2],c[2]);
 HA u4(A[3],c[2],Sum[3],Cout);
 //Not going to be using Cout at all in the stopwatch
 
-
 endmodule
